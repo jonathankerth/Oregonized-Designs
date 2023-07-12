@@ -17,10 +17,11 @@ export default function About() {
 				</p>
 
 				<div className="flex justify-center">
-					<Link href="/">
-						<a className="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600">
-							Back to Home
-						</a>
+					<Link
+						href="/"
+						className="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600"
+					>
+						Back to Home
 					</Link>
 				</div>
 			</div>

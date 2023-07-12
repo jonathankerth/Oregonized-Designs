@@ -1,26 +1,16 @@
+import React from "react";
 import Link from "next/link";
 
-import MainNav from "@/components/main-nav";
-import Container from "@/components/ui/container";
-import NavbarActions from "@/components/navbar-actions";
-import getCategories from "@/actions/get-categories";
-
-const Navbar = async () => {
-	const categories = await getCategories();
-
+export default function Navbar() {
 	return (
-		<div className="border-b">
-			<Container>
-				<div className="relative px-4 sm:px-6 lg:px-8 flex h-16 items-center">
-					<Link href="/" className="ml-4 flex lg:ml-0 gap-x-2">
-						<p className="font-bold text-xl">STORE</p>
+		<nav className="bg-gray-800 p-6">
+			<div className="container mx-auto flex items-center justify-between">
+				<div>
+					<Link href="..//about" className="text-white mx-3">
+						About
 					</Link>
-					<MainNav data={categories} />
-					<NavbarActions />
 				</div>
-			</Container>
-		</div>
+			</div>
+		</nav>
 	);
-};
-
-export default Navbar;
+}
