@@ -49,7 +49,7 @@ export default function Home() {
 				className="relative"
 			>
 				<div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
-					<Link href="/sales">
+					<Link href="./product/sale">
 						<button className="py-4 px-8 bg-green-500 text-xl text-white font-bold rounded-lg">
 							Shop Sales Now
 						</button>
