@@ -1,5 +1,21 @@
-import Client from "shopify-buy";
-
-export default function Products() {
-	return <div className="grid grid-cols-3 gap-4">these are the products</div>;
+export default function Product({ product }) {
+	return (
+		<div className="border border-gray-300 p-4 rounded-md">
+			<div className="flex justify-between items-center mt-4">
+				<button className="py-2 px-4 bg-green-500 text-white text-sm rounded-lg">
+					Add to cart
+				</button>
+			</div>
+			<div className="flex justify-between items-center mt-4">
+				<button className="py-2 px-4 bg-green-500 text-white text-sm rounded-lg">
+					Add to cart
+				</button>
+			</div>
+			<div className="flex justify-between items-center mt-4">
+				<button className="py-2 px-4 bg-green-500 text-white text-sm rounded-lg">
+					Add to cart
+				</button>
+			</div>
+		</div>
+	);
 }
