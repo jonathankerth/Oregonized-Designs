@@ -9,8 +9,11 @@ export default function Navbar() {
 					<Link href="../product" className="text-white mx-3">
 						Products
 					</Link>
+					<Link href="../custom" className="text-white mx-3">
+						Custom Orders
+					</Link>
 					<Link href="../about" className="text-white mx-3">
-						About
+						About Us
 					</Link>
 				</div>
 				<div>
