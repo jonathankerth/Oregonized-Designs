@@ -200,7 +200,7 @@ const navigation = {
 			],
 		},
 	],
-	pages: [{ name: "About Us", href: "#" }],
+	pages: [{ name: "Custom Orders", href: "/custom" }],
 };
 
 function classNames(...classes) {
