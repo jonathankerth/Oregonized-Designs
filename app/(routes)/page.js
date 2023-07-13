@@ -57,7 +57,7 @@ export default function Home() {
 					</Link>
 				</div>
 			</div>
-			<div className="container mx-auto px-5 my-10">
+			<div className="  w-full">
 				<AboutUs />
 			</div>
 			<div className="container mx-auto px-5 my-10">
