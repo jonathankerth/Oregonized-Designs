@@ -3,6 +3,7 @@ import Link from "next/link";
 import Products from "./product/[productId]/page.js";
 import Footer from "../../components/footer.js";
 import Navbar from "../../components/navbar.js";
+import AboutUs from "../../components/aboutUs.js";
 
 export default function Home() {
 	const imageUrlTop =
@@ -55,6 +56,9 @@ export default function Home() {
 						</button>
 					</Link>
 				</div>
+			</div>
+			<div lassName="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
+				<AboutUs />
 			</div>
 			<div className="container mx-auto px-5 my-10">
 				<h2 className="text-3xl font-bold text-center mb-6">
