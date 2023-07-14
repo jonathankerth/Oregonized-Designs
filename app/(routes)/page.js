@@ -4,6 +4,22 @@ import Products from "./product/[productId]/page.js";
 import Footer from "../../components/footer.js";
 import Navbar from "../../components/navbar.js";
 import AboutUs from "../../components/aboutUs.js";
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+import shopifyAPIHandler from "../../api/shopify.js";
+
+const firebaseConfig = {
+	apiKey: process.env.FIREBASE_API_KEY,
+	authDomain: "oregonized-design.firebaseapp.com",
+	projectId: "oregonized-design",
+	storageBucket: "oregonized-design.appspot.com",
+	messagingSenderId: "798224002171",
+	appId: "1:798224002171:web:39ccd93f915d4cad06c6de",
+	measurementId: "G-16L27555K2",
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
 
 export default function Home() {
 	const imageUrlTop =
