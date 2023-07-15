@@ -1,12 +1,12 @@
 import React from "react";
 import Link from "next/link";
 import Products from "./product/[productId]/page.js";
+import Collection from "./product/collections/page.js";
 import Footer from "../../components/footer.js";
 import Navbar from "../../components/navbar.js";
 import AboutUs from "../../components/aboutUs.js";
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import shopifyAPIHandler from "../../api/shopify.js";
 
 const firebaseConfig = {
 	apiKey: process.env.FIREBASE_API_KEY,
@@ -53,7 +53,7 @@ export default function Home() {
 			</div>
 			<div className="container mx-auto px-5">
 				<div className="bg-white opacity-90">
-					<Products />
+					<Collection />
 				</div>
 			</div>
 			<div
