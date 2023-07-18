@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Products from './product/[productId]/page.js'
-import Collection from './product/collections/page.js'
+import ProductsPage from './product/collections/page.js'
 import Footer from '../../components/footer.js'
 import Navbar from '../../components/navbar.js'
 import AboutUs from '../../components/aboutUs.js'
@@ -51,7 +51,7 @@ export default function Home() {
           </p>
         </div>
       </div>
-
+      <ProductsPage />
       <div
         style={{
           backgroundImage: `url(${imageUrlBottom})`,

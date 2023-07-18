@@ -7,10 +7,12 @@ import shopifyAPIHandler from '../../../../api/shopify.js'
 
 import Client from 'shopify-buy'
 
+const storefrontAccessToken = process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN
+
 // Initialize Client
 const client = Client.buildClient({
-  domain: 'your-shop-name.myshopify.com',
-  storefrontAccessToken: 'your-storefront-access-token',
+  domain: 'oregonizeddesignco.myshopify.com',
+  storefrontAccessToken: process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN,
 })
 
 function ProductsPage() {
