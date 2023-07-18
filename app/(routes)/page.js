@@ -51,11 +51,7 @@ export default function Home() {
           </p>
         </div>
       </div>
-      <div className="container mx-auto px-5">
-        <div className="bg-white opacity-90">
-          <Collection />
-        </div>
-      </div>
+
       <div
         style={{
           backgroundImage: `url(${imageUrlBottom})`,
@@ -72,9 +68,6 @@ export default function Home() {
             </button>
           </Link>
         </div>
-      </div>
-      <div className="  w-full">
-        <AboutUs />
       </div>
       <div className="container mx-auto px-5 my-10">
         <h2 className="text-3xl font-bold text-center mb-6">
@@ -93,6 +86,10 @@ export default function Home() {
           ))}
         </div>
       </div>
+      <div className="  w-full">
+        <AboutUs />
+      </div>
+
       <Footer />
     </div>
   )
