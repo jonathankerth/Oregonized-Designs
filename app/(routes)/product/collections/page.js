@@ -127,15 +127,20 @@ function ProductsPage() {
   }
 
   return (
-    <div>
-      <h1 className="mt-6 mb-6">Collections</h1>
+    <div className="bg-gray-100 p-2">
+      <h1 className="text-4xl font-bold mt-6 mb-6">Collections</h1>
       {collections.map((collection) => (
-        <div key={collection.id}>
-          <h2>{collection.handle}</h2>
+        <div
+          key={collection.id}
+          className="bg-white p-4 my-4 rounded shadow-lg"
+        >
+          <h2 className="text-3xl font-semibold mb-4">{collection.handle}</h2>
           {collection.products.map((product) => (
-            <div key={product.id}>
-              <h3>{product.title}</h3>
-              <p>Price: {product.priceRange.minVariantPrice.amount}</p>
+            <div key={product.id} className="border-t mt-4 pt-4">
+              <h3 className="text-2xl font-medium">{product.title}</h3>
+              <p className="text-gray-600 mt-2">
+                Price: ${product.priceRange.minVariantPrice.amount}
+              </p>
             </div>
           ))}
         </div>
