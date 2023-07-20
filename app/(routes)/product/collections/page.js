@@ -1,11 +1,8 @@
 'use client'
 import { useEffect, useState } from 'react'
-import shopify from '@shopify/shopify-api' // Assuming you've installed the package
 
-// Constants for Shopify store
-const SHOP_DOMAIN = 'oregonizeddesignco.myshopify.com'
-const API_VERSION = '2023-07' // Use the latest API version you provided
-const GRAPHQL_ENDPOINT = `https://oregonizeddesignco.myshopify.com/api/2023-07/graphql.json`
+const GRAPHQL_ENDPOINT =
+  'https://oregonizeddesignco.myshopify.com/api/2023-07/graphql.json'
 const STOREFRONT_ACCESS_TOKEN = process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN
 
 function ProductsPage() {
@@ -42,25 +39,34 @@ function ProductsPage() {
             }
           }
         }
-      }
-      `
+      }`
+
+      console.log('About to send request to Shopify...')
 
       try {
         const response = await fetch(GRAPHQL_ENDPOINT, {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json',
             'X-Shopify-Storefront-Access-Token': STOREFRONT_ACCESS_TOKEN,
+            'Content-Type': 'application/json',
           },
           body: JSON.stringify({ query }),
         })
 
-        if (!response.ok) {
-          throw new Error('Network response was not ok')
+        console.log('Received response from Shopify:', response)
+
+        const jsonResponse = await response.json()
+
+        console.log('JSON response:', jsonResponse)
+
+        if (!response.ok || jsonResponse.errors) {
+          const errorMessage = jsonResponse.errors
+            ? jsonResponse.errors[0].message
+            : 'Network response was not ok'
+          throw new Error(errorMessage)
         }
 
-        const { data } = await response.json()
-        setProducts(data.products.edges.map((edge) => edge.node))
+        setProducts(jsonResponse.data.products.edges.map((edge) => edge.node))
       } catch (err) {
         console.error('There was a problem fetching products:', err)
         setError(err.message)
