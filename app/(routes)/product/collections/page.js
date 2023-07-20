@@ -82,7 +82,7 @@ function ProductsPage() {
 
   return (
     <div>
-      <h1>Products</h1>
+      <h1 className="mt-6 mb-6">Products</h1>
       {products.map((product) => (
         <div key={product.id}>
           <h2>{product.title}</h2>
