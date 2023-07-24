@@ -135,13 +135,12 @@ function ProductsPage() {
 
   return (
     <div className="bg-gray-100 p-2">
-      <h1 className="text-4xl font-bold mt-6 mb-6">Collections</h1>
+      <h1 className="text-4xl font-bold mt-6 mb-6">New Items</h1>
       {collections.map((collection) => (
         <div
           key={collection.id}
           className="bg-white p-4 my-4 rounded shadow-lg"
         >
-          <h2 className="text-3xl font-semibold mb-4">{collection.handle}</h2>
           <div className="flex overflow-x-auto space-x-4">
             {collection.products.map((product) => (
               <div
