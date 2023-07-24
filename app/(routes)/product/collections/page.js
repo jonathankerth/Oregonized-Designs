@@ -30,20 +30,26 @@ function ProductsPage() {
       `
 
       const productQuery = `
-        query getProducts($collectionIds: [ID!]!) {
-          nodes(ids: $collectionIds) {
-            ... on Collection {
-              id
-              title
-              products(first: 10) {
-                edges {
-                  node {
-                    id
-                    title
-                    priceRange {
-                      minVariantPrice {
-                        amount
+      query getProducts($collectionIds: [ID!]!) {
+        nodes(ids: $collectionIds) {
+          ... on Collection {
+            id
+            title
+            products(first: 10) {
+              edges {
+                node {
+                  id
+                  title
+                  images(first: 1) {
+                    edges {
+                      node {
+                        src
                       }
+                    }
+                  }
+                  priceRange {
+                    minVariantPrice {
+                      amount
                     }
                   }
                 }
@@ -51,7 +57,8 @@ function ProductsPage() {
             }
           }
         }
-      `
+      }
+    `
 
       console.log('About to send request to Shopify...')
 
@@ -135,14 +142,24 @@ function ProductsPage() {
           className="bg-white p-4 my-4 rounded shadow-lg"
         >
           <h2 className="text-3xl font-semibold mb-4">{collection.handle}</h2>
-          {collection.products.map((product) => (
-            <div key={product.id} className="border-t mt-4 pt-4">
-              <h3 className="text-2xl font-medium">{product.title}</h3>
-              <p className="text-gray-600 mt-2">
-                Price: ${product.priceRange.minVariantPrice.amount}
-              </p>
-            </div>
-          ))}
+          <div className="flex overflow-x-auto space-x-4">
+            {collection.products.map((product) => (
+              <div
+                key={product.id}
+                className="flex-none w-full border-t mt-4 pt-4"
+              >
+                <img
+                  src={product.images.edges[0].node.src}
+                  alt={product.title}
+                  className="w-full h-64 object-cover mb-4"
+                />
+                <h3 className="text-2xl font-medium">{product.title}</h3>
+                <p className="text-gray-600 mt-2">
+                  Price: ${product.priceRange.minVariantPrice.amount}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       ))}
     </div>
