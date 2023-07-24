@@ -9,11 +9,12 @@ export default function About() {
         </h1>
 
         <p className="text-center text-xl mb-10">
-          Oregonized Design is a dropshipping company focused on providing
-          high-quality products designed in the unique and beautiful aesthetic
-          inspired by the state of Oregon. Our mission is to share the beauty of
-          Orego&apos;s natural landscapes and vibrant cityscapes through our
-          designs.
+          Oregonized Design Co. is dedicated to offering high-quality products
+          that capture the unique and beautiful aesthetic inspired by the state
+          of Oregon. Our mission is to celebrate and share the beauty of
+          Oregon&apos;s natural landscapes and vibrant cityscapes through our
+          designs. Oregonized Design Co.is a small business based in Portland,
+          created by Sidney Gallardo and Jonathan Kerth.
         </p>
 
         <div className="flex justify-center">
