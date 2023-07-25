@@ -1,6 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react'
 import dotenv from 'dotenv'
+import BuyButton from '../../../../components/buyButton'
 
 dotenv.config()
 
@@ -156,6 +157,7 @@ function ProductsPage() {
                 <p className="text-gray-600 mt-2">
                   Price: ${product.priceRange.minVariantPrice.amount}
                 </p>
+                <BuyButton productId={product.id} />
               </div>
             ))}
           </div>
