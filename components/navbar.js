@@ -457,15 +457,15 @@ export default function Navbar() {
               </Popover.Group>
 
               {/* Logo */}
-              <a href="/" className="flex">
+              <a href="/" className="flex items-center justify-center ">
                 <img
-                  className="h-10 w-auto sm:h-8"
-                  src="https://lh3.googleusercontent.com/pw/AIL4fc-FzijAtQiDK3Yo4nDcXI2Ak8nhadE6c4OeWGIWSYYoTGDsxz8Mb1T2cFh8ga6ryl1gge_mVmKIiQS1yNeUsodbWGwiNQIUF1uI-OUIrySrlWOKAtZiRRik5sTZzxalisF6S-VWqTkzH5QH2zBu80h2tDzt3vl8d1mePqs9mdKhVeF_z6hjiWAG9_PZ4aEBHBm05QEhYBkRLys-tBoSrZqV10HiGaiiSZ_HQ6kaXKlMljiR8Y9Wz_lrjlsJJaD16qO_lZcbk1dpUv55m-b0TRJwz6NJ8bMxot20l3fb_AhxgzY1VypmWvJeBCxkR18_HdyrRPLT9DYy0dgZ7jR_r95lnCNh7XU_cndMSa_Vx4REQ7e9-S-kYQivCv9AIc33aItT2SVs-k_mr_hpuC-sU4T452bd3x2Lbvsga6_smvWOVecUxitk6VrWlzHwkq5tpwvC9cOESJfyWIPwgklPvFWNlId93ZZw8yLtv-FdqUK6GmlvHzBz3Bky_3Y5zSYYcJBrvMm_7OMWLG-7jFx_ONan2DOufDATtJM69zVxbMt05Iv2rzTrqdWpR4CuS-eo-3cwAIxF70GaDtW7SMLFXBUqvBoAqQtO1GnU50ZHBElj3wMdWVH75-VqujRd-90NIpAx_fsuwkFCA7dIt4efTz_LJ5KS4im4K-2qBbte2xANMXJdylrnA21plgMOKl5Qb71Kwdis2-Af_B5hCz4CkmP0lQ-EI2z8OT3rp3wA-WH5QfXEL76FGQMx4zlA6UoHsx6o-DKAd1rfJYjwk7t1RwlrDNpAD7XhLYB4g7Vo47zjJa2Xq0Ze2m-KIIVF38K7CIkNVtQUJyhoxoLrS8f97J-ceZmpO7ufoHytTxdatDbkHaHW_99Wbx3Ye0GDGFfaAPCYFZs_J0iCclQ6XtnsftYtQYVytpmhlUA26Mm4TEFIThVjvn_TWzKEl5fsSUPpvH-w4-NkbDKoSe4CKZ8BRGghbT_yhDfbaUYF9NndgxUd1M32SigYrfkfrKE8SV-FlDKmKDftVT-Jtb_O5yjDHN4MtKfekTsX4EfLpbu5=w500-h500-s-no?authuser=0g"
+                  className="h-16 w-auto sm:h-20 md:h-24 lg:h-28 xl:h-32 rounded-full"
+                  src="https://mypublicucket.s3.us-west-2.amazonaws.com/Oregonized.png"
                   alt=""
                 />
               </a>
 
-              <div className="flex flex-1 items-center justify-end">
+              <div className="flex flex-1 items-center justify-end ">
                 <a
                   href="#"
                   className="hidden text-gray-700 hover:text-gray-800 lg:flex lg:items-center"
