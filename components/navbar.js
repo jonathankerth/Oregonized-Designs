@@ -457,14 +457,13 @@ export default function Navbar() {
               </Popover.Group>
 
               {/* Logo */}
-              <a href="/" className="flex items-center justify-center ">
+              <a href="/">
                 <img
-                  className="h-16 w-auto sm:h-20 md:h-24 lg:h-28 xl:h-32 rounded-full"
+                  className="h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 lg:h-16 lg:w-16 xl:h-20 xl:w-20 rounded-full"
                   src="https://mypublicucket.s3.us-west-2.amazonaws.com/Oregonized.png"
-                  alt=""
+                  alt="Logo"
                 />
               </a>
-
               <div className="flex flex-1 items-center justify-end ">
                 <a
                   href="#"

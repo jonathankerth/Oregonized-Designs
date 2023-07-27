@@ -140,7 +140,9 @@ function Sale() {
   return (
     <div className="bg-gray-100 p-2">
       <Navbar />
-      <h1 className="text-4xl font-bold mt-6 mb-6">Sale Items</h1>
+      <h1 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
+        Sale Items
+      </h1>
       {collections.map((collection) => (
         <div
           key={collection.id}
