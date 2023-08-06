@@ -9,7 +9,13 @@ const STOREFRONT_ACCESS_TOKEN =
 
 const Checkout = () => {
   const [cart, setCart] = useState(null)
-  const cartId = window.location.search.replace('?cartId=', '')
+  const [cartId, setCartId] = useState('')
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setCartId(window.location.search.replace('?cartId=', ''))
+    }
+  }, [])
 
   useEffect(() => {
     async function fetchCartDetails() {
@@ -54,7 +60,9 @@ const Checkout = () => {
   }
 
   const handleContinueShopping = () => {
-    window.location.href = '/'
+    if (typeof window !== 'undefined') {
+      window.location.href = '/'
+    }
   }
 
   return (
