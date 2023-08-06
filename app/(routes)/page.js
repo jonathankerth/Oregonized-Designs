@@ -1,12 +1,13 @@
 import React from 'react'
 import Link from 'next/link'
 import Products from './product/[productId]/page.js'
-import ProductsPage from './product/collections/page.js'
+import ProductsPage from './product/productList/page.js'
 import Footer from '../../components/footer.js'
 import Navbar from '../../components/navbar.js'
 import AboutUs from '../../components/aboutUs.js'
 import { initializeApp } from 'firebase/app'
 import { getAnalytics } from 'firebase/analytics'
+import Collections from './product/collections/page.js'
 
 const firebaseConfig = {
   apiKey: process.env.FIREBASE_API_KEY,
@@ -51,7 +52,7 @@ export default function Home() {
           </p>
         </div>
       </div>
-      <ProductsPage />
+      <Collections />
       <div
         style={{
           backgroundImage: `url(${imageUrlBottom})`,

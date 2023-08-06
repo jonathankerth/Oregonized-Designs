@@ -1,7 +1,6 @@
 'use client'
 import Footer from '../../../../components/footer.js'
 import Navbar from '../../../../components/navbar.js'
-
 import { useEffect, useState } from 'react'
 import dotenv from 'dotenv'
 import BuyButton from '../../../../components/buyButton'

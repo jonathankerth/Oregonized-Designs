@@ -11,7 +11,7 @@ const GRAPHQL_ENDPOINT =
 const STOREFRONT_ACCESS_TOKEN =
   process.env.NEXT_PUBLIC_SHOPIFY_STORE_FRONT_ACCESS_TOKEN
 
-function ProductsPage() {
+function Collections() {
   const [collections, setCollections] = useState([])
   const [error, setError] = useState(null)
 
@@ -167,4 +167,4 @@ function ProductsPage() {
   )
 }
 
-export default ProductsPage
+export default Collections
