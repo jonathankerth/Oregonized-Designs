@@ -40,7 +40,9 @@ export default function CustomOrderPage() {
   return (
     <div className="max-w-lg mx-auto p-4">
       <Navbar />
-      <h1 className="text-center text-2xl font-bold mb-4">Custom Order Page</h1>
+      <h1 className="text-center text-2xl font-bold mb-4 mt-6">
+        Custom Order Page
+      </h1>
       <form onSubmit={handleSubmit}>
         <label className="block mb-4">
           <span className="text-lg mb-2 block">Name:</span>
