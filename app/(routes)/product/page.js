@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import dotenv from 'dotenv'
 import BuyButton from '../../../components/buyButton'
+import Navbar from '@/components/navbar'
 
 dotenv.config()
 
@@ -138,7 +139,8 @@ function Product({ productId }) {
 
   return (
     <div className="bg-gray-100 p-2">
-      <h1 className="text-4xl font-bold mt-6 mb-6">New Items</h1>
+      <Navbar />
+      <h1 className="text-4xl font-bold mt-6 mb-6">All Items</h1>
       {collections.map((collection) => (
         <div
           key={collection.id}
