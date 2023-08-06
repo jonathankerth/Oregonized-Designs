@@ -54,8 +54,6 @@ const Checkout = () => {
   }
 
   const handleContinueShopping = () => {
-    // Replace this URL with the page URL where you want to continue shopping.
-    // For example: '/products' or '/'
     window.location.href = '/'
   }
 
@@ -65,10 +63,6 @@ const Checkout = () => {
         <h1 className="text-center text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
           Checkout Page
         </h1>
-
-        {/* Display cart details and checkout information here */}
-        {/* ... */}
-        {/* (You can use the cart state to access the cart details and display them on the page) */}
 
         <div className="mt-10">
           <button
