@@ -5,7 +5,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'Oregonzied Design',
-  description: 'Front-end for headless Shopify Dropshipping store',
+  description: 'Front-end for headless Shopify store',
 }
 
 export default function RootLayout({ children }) {
