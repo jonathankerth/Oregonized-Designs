@@ -21,7 +21,7 @@ const ADD_TO_CART_MUTATION = `
   }
 `
 
-const BuyButton = ({ productId }) => {
+const BuyButton = ({ variantId }) => {
   async function addToCart(variantId, quantity = 1) {
     try {
       const response = await fetch(GRAPHQL_ENDPOINT, {
@@ -38,14 +38,11 @@ const BuyButton = ({ productId }) => {
 
       const jsonResponse = await response.json()
 
-      if (!response.ok || jsonResponse.errors) {
-        const errorMessage = jsonResponse.errors
-          ? jsonResponse.errors[0].message
-          : 'Network response was not ok'
-        throw new Error(errorMessage)
+      if (jsonResponse.errors && jsonResponse.errors.length > 0) {
+        console.error('Detailed Error:', jsonResponse.errors[0].message)
+        throw new Error(jsonResponse.errors[0].message)
       }
 
-      // Redirect to checkout page or handle the response as needed
       window.location.href = jsonResponse.data.checkoutCreate.checkout.webUrl
     } catch (err) {
       console.error('There was a problem adding to cart:', err)
@@ -54,7 +51,7 @@ const BuyButton = ({ productId }) => {
 
   return (
     <button
-      onClick={() => addToCart(productId)}
+      onClick={() => addToCart(variantId)}
       className="bg-blue-500 text-white px-4 py-2 rounded mt-4"
     >
       Add to Cart

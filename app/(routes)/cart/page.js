@@ -1,8 +1,8 @@
 'use client'
+
 import { useEffect, useState } from 'react'
 import { CheckIcon, ClockIcon } from '@heroicons/react/outline'
 
-// Set your GraphQL endpoint and storefront access token
 const GRAPHQL_ENDPOINT =
   'https://oregonizeddesignco.myshopify.com/api/2023-07/graphql.json'
 const STOREFRONT_ACCESS_TOKEN =
@@ -12,80 +12,85 @@ export default function Cart() {
   const [cart, setCart] = useState(null)
 
   useEffect(() => {
-    async function fetchCartDetails() {
-      const cartId = 'YOUR_CART_ID' // Replace with your actual cart ID
+    const cartId = localStorage.getItem('cartId')
+    fetchCartDetails(cartId)
+  }, [])
 
-      const cartQuery = `
-        query getCart($cartId: ID!) {
-          cart(id: $cartId) {
-            id
-            attributes {
-              key
-              value
-            }
-            buyerIdentity {
-              email
-              phone
-            }
-            checkoutUrl
-            cost {
-              totalAmount
-              currencyCode
-            }
-            createdAt
-            discountAllocations {
-              allocatedAmount
-              discountCode
-            }
-            discountCodes
-            note
-            totalQuantity
-            updatedAt
-            lines(first: 10) {
-              edges {
-                node {
-                  id // Add the ID field for product identification
-                  title
-                  variant {
-                    priceV2 {
-                      amount
-                      currencyCode
-                    }
-                    image {
-                      src
-                    }
+  async function fetchCartDetails(cartId) {
+    if (!cartId) {
+      console.error('Cart ID is missing')
+      return
+    }
+
+    const cartQuery = `
+      query getCart($cartId: ID!) {
+        cart(id: $cartId) {
+          id
+          attributes {
+            key
+            value
+          }
+          buyerIdentity {
+            email
+            phone
+          }
+          checkoutUrl
+          cost {
+            totalAmount
+            currencyCode
+          }
+          createdAt
+          discountAllocations {
+            allocatedAmount
+            discountCode
+          }
+          discountCodes
+          note
+          totalQuantity
+          updatedAt
+          lines(first: 10) {
+            edges {
+              node {
+                id
+                title
+                variant {
+                  priceV2 {
+                    amount
+                    currencyCode
+                  }
+                  image {
+                    src
                   }
                 }
               }
             }
           }
         }
-      `
-
-      try {
-        const response = await fetch(GRAPHQL_ENDPOINT, {
-          method: 'POST',
-          headers: {
-            'X-Shopify-Storefront-Access-Token': STOREFRONT_ACCESS_TOKEN,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            query: cartQuery,
-            variables: { cartId },
-          }),
-        })
-
-        const jsonResponse = await response.json()
-        setCart(jsonResponse.data.cart)
-      } catch (error) {
-        console.error('Error fetching cart details:', error)
       }
-    }
+    `
 
-    fetchCartDetails()
-  }, [])
+    try {
+      const response = await fetch(GRAPHQL_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'X-Shopify-Storefront-Access-Token': STOREFRONT_ACCESS_TOKEN,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          query: cartQuery,
+          variables: { cartId },
+        }),
+      })
+
+      const jsonResponse = await response.json()
+      setCart(jsonResponse.data.cart)
+    } catch (error) {
+      console.error('Error fetching cart details:', error)
+    }
+  }
 
   const products = cart?.lines?.edges?.map((edge) => edge.node) || []
+  const subtotal = cart?.cost?.totalAmount || 0
 
   const handleRemoveFromCart = async (productId) => {
     const updatedProducts = products.filter(
@@ -185,7 +190,6 @@ export default function Cart() {
             </ul>
           </section>
 
-          {/* Order summary */}
           <section aria-labelledby="summary-heading" className="mt-10">
             <h2 id="summary-heading" className="sr-only">
               Order summary
@@ -198,7 +202,7 @@ export default function Cart() {
                     Subtotal
                   </dt>
                   <dd className="ml-4 text-base font-medium text-gray-900">
-                    $96.00
+                    ${subtotal.toFixed(2)}
                   </dd>
                 </div>
               </dl>

@@ -142,14 +142,47 @@ function Product({ productId }) {
   }
 
   const filters = [
-    { name: 'Category', id: 'category' },
-    { name: 'Color', id: 'color' },
-    { name: 'Size', id: 'size' },
+    {
+      id: 'color',
+      name: 'Color',
+      options: [
+        { value: 'white', label: 'White' },
+        { value: 'beige', label: 'Beige' },
+        { value: 'blue', label: 'Blue' },
+        { value: 'brown', label: 'Brown' },
+        { value: 'green', label: 'Green' },
+        { value: 'purple', label: 'Purple' },
+      ],
+    },
+    {
+      id: 'category',
+      name: 'Category',
+      options: [
+        { value: 'new-arrivals', label: 'All New Arrivals' },
+        { value: 'tees', label: 'Tees' },
+        { value: 'crewnecks', label: 'Crewnecks' },
+        { value: 'sweatshirts', label: 'Sweatshirts' },
+        { value: 'pants-shorts', label: 'Pants & Shorts' },
+      ],
+    },
+    {
+      id: 'sizes',
+      name: 'Sizes',
+      options: [
+        { value: 'xs', label: 'XS' },
+        { value: 's', label: 'S' },
+        { value: 'm', label: 'M' },
+        { value: 'l', label: 'L' },
+        { value: 'xl', label: 'XL' },
+        { value: '2xl', label: '2XL' },
+      ],
+    },
   ]
 
   function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
   }
+
   return (
     <div className="bg-gray-100 p-2">
       <Navbar />
@@ -306,7 +339,7 @@ function Product({ productId }) {
                         <p className="text-gray-600 mt-2">
                           Price: ${product.priceRange.minVariantPrice.amount}
                         </p>
-                        <BuyButton productId={product.id} />
+                        <BuyButton variantId={product.variant.id} />
                       </div>
                     ))}
                   </div>
