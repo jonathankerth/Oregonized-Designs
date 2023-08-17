@@ -339,7 +339,7 @@ function Product({ productId }) {
                         <p className="text-gray-600 mt-2">
                           Price: ${product.priceRange.minVariantPrice.amount}
                         </p>
-                        <BuyButton variantId={product.variant.id} />
+                        <BuyButton variantId={product.variantId} />
                       </div>
                     ))}
                   </div>

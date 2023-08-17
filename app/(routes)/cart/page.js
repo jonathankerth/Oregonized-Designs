@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { CheckIcon, ClockIcon } from '@heroicons/react/outline'
+import Footer from '../../../components/footer'
 
 const GRAPHQL_ENDPOINT =
   'https://oregonizeddesignco.myshopify.com/api/2023-07/graphql.json'
@@ -107,8 +108,8 @@ export default function Cart() {
   }
 
   return (
-    <div className="bg-white">
-      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:px-0">
+    <div className="flex flex-col min-h-screen bg-white">
+      <div className="flex-grow mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:px-0">
         <h1 className="text-center text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
           Shopping Cart
         </h1>
@@ -236,6 +237,7 @@ export default function Cart() {
           </section>
         </form>
       </div>
+      <Footer />
     </div>
   )
 }
