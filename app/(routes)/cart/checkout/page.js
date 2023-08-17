@@ -1,5 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react'
+import Footer from '../../../../components/footer'
+import Navbar from '../../../../components/navbar'
 
 const GRAPHQL_ENDPOINT =
   'https://oregonizeddesignco.myshopify.com/api/2023-07/graphql.json'
@@ -66,8 +68,9 @@ const Checkout = () => {
   }
 
   return (
-    <div className="bg-white">
-      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:px-0">
+    <div className="flex flex-col min-h-screen bg-white">
+      <Navbar />
+      <div className="flex-grow mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:px-0">
         <h1 className="text-center text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
           Checkout Page
         </h1>
@@ -82,6 +85,7 @@ const Checkout = () => {
           </button>
         </div>
       </div>
+      <Footer />
     </div>
   )
 }

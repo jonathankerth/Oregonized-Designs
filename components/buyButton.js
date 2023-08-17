@@ -1,5 +1,10 @@
 import React from 'react'
 
+const GRAPHQL_ENDPOINT =
+  'https://oregonizeddesignco.myshopify.com/api/2023-07/graphql.json'
+const STOREFRONT_ACCESS_TOKEN =
+  process.env.NEXT_PUBLIC_SHOPIFY_STORE_FRONT_ACCESS_TOKEN
+
 const ADD_TO_CART_MUTATION = `
   mutation addToCart($variantId: ID!, $quantity: Int!) {
     checkoutCreate(input: {
@@ -19,9 +24,10 @@ const ADD_TO_CART_MUTATION = `
 const BuyButton = ({ variantId }) => {
   async function addToCart(variantId, quantity = 1) {
     try {
-      const response = await fetch('http://localhost:300/shopify', {
+      const response = await fetch(GRAPHQL_ENDPOINT, {
         method: 'POST',
         headers: {
+          'X-Shopify-Storefront-Access-Token': STOREFRONT_ACCESS_TOKEN,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
