@@ -386,7 +386,7 @@ export default function Navbar() {
               {/* Logo */}
               <a href="/">
                 <img
-                  className="h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 lg:h-16 lg:w-16 xl:h-20 xl:w-20 rounded-full"
+                  className="flex-shrink-0 h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 lg:h-16 lg:w-16 xl:h-20 xl:w-20 rounded-full overflow-hidden"
                   src="https://mypublicucket.s3.us-west-2.amazonaws.com/Oregonized.png"
                   alt="Logo"
                 />
