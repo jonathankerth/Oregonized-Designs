@@ -1,6 +1,6 @@
-# Oregonized Design Co. - Custom Clothing Brand
+# Oregonized Design Co. - Custom Clothing Brand (WIP)
 
-This project is the frontend for [Oregonized Designs](https://oregonizeddesign.com/), a custom clothing brand. It showcases the unique products and provides a seamless shopping experience.
+This project is the front-end for [Oregonized Designs](https://oregonizeddesign.com/), a custom clothing brand. It showcases the unique designs of Sidney Gallardo and provides a seamless shopping experience created by Jonathan Kerth. 
 
 ## Technologies Used
 
@@ -9,19 +9,15 @@ This project is the frontend for [Oregonized Designs](https://oregonizeddesign.c
 - **Styling:** Tailwind CSS, [@tailwindcss/aspect-ratio](https://tailwindcss.com/docs/aspect-ratio), [@tailwindcss/typography](https://tailwindcss.com/docs/typography)
 - **Shopify Integration:** @shopify/hydrogen, @shopify/shopify-api, shopify-buy
 
-
-
 ## Features
 
 - Customizable clothing products
-- Responsive navigation bar
 - Integration with Shopify for product management
 - Elegant design with Tailwind CSS
 
 ## Visit the Website
 
 Check out the live website at [Oregonized Design Co](https://oregonizeddesign.com/).
-
 
 ## License
 
