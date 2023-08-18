@@ -1,6 +1,6 @@
 # Oregonized Design Co. - Custom Clothing Brand
 
-This project is the frontend for [Oregonized Designs](https://oregonizeddesignco.com), a custom clothing brand. It showcases the unique products and provides a seamless shopping experience.
+This project is the frontend for [Oregonized Designs](https://oregonizeddesign.com/), a custom clothing brand. It showcases the unique products and provides a seamless shopping experience.
 
 ## Technologies Used
 
