@@ -9,31 +9,7 @@ This project is the frontend for [Oregonized Designs](https://oregonizeddesign.c
 - **Styling:** Tailwind CSS, [@tailwindcss/aspect-ratio](https://tailwindcss.com/docs/aspect-ratio), [@tailwindcss/typography](https://tailwindcss.com/docs/typography)
 - **Shopify Integration:** @shopify/hydrogen, @shopify/shopify-api, shopify-buy
 
-## Getting Started
 
-First, clone the repository and install the dependencies:
-
-\`\`\`bash
-git clone https://github.com/your-username/oregonized-designs.git
-cd oregonized-designs
-npm install
-# or
-yarn install
-# or
-pnpm install
-\`\`\`
-
-Next, run the development server:
-
-\`\`\`bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-\`\`\`
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
 ## Features
 
@@ -44,11 +20,8 @@ You can start editing the page by modifying `app/page.js`. The page auto-updates
 
 ## Visit the Website
 
-Check out the live website at [Oregonized Design Co](https://oregonizeddesignco.com).
+Check out the live website at [Oregonized Design Co](https://oregonizeddesign.com/).
 
-## Contributing
-
-Feel free to open issues or submit pull requests to enhance the project. Your contributions are welcome!
 
 ## License
 
