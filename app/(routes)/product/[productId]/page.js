@@ -1,6 +1,6 @@
 'use client'
+
 import { useState, useEffect } from 'react'
-import { useRouter } from 'next/router'
 import BuyButton from '../../../../components/buyButton'
 import Image from 'next/image'
 
@@ -10,12 +10,14 @@ const GRAPHQL_ENDPOINT =
 const STOREFRONT_ACCESS_TOKEN =
   process.env.NEXT_PUBLIC_SHOPIFY_STORE_FRONT_ACCESS_TOKEN
 
-function Product() {
+function ProductDetail({ productId }) {
   const [product, setProduct] = useState(null)
-  const router = useRouter()
-  const { productId } = router.query
 
   useEffect(() => {
+    if (!productId) return
+
+    const shopifyProductId = `gid://shopify/Product/${productId}`
+
     async function fetchProductData() {
       try {
         const productQuery = `
@@ -49,7 +51,7 @@ function Product() {
           },
           body: JSON.stringify({
             query: productQuery,
-            variables: { id: productId },
+            variables: { id: shopifyProductId },
           }),
         })
 
@@ -78,24 +80,36 @@ function Product() {
   }
 
   return (
-    <div>
-      <h1 className="text-4xl font-bold mt-6 mb-6">{product.title}</h1>
-      <div className="flex-none w-full border-t mt-4 pt-4">
-        <Image
-          src={product.images.edges[0].node.src}
-          alt={product.title}
-          width={640}
-          height={480}
-          className="w-full h-64 object-cover mb-4"
-        />
-        <h3 className="text-2xl font-medium">{product.title}</h3>
-        <p className="text-gray-600 mt-2">
-          Price: ${product.priceRange.minVariantPrice.amount}
-        </p>
-        <BuyButton productId={product.id} />
+    <div className="container mx-auto my-10">
+      <h1 className="text-4xl font-bold mb-6">{product.title}</h1>
+      <div className="flex">
+        <div style={{ width: 640, height: 480 }}>
+          <Image
+            src={product.images.edges[0].node.src}
+            alt={product.title}
+            width={640}
+            height={480}
+            layout="fixed" // Added layout property
+            className="w-full h-64 object-cover mb-4"
+          />
+        </div>
+        <div className="ml-6">
+          <h3 className="text-2xl font-medium">{product.title}</h3>
+          <p className="text-gray-600 mt-2">
+            Price: ${product.priceRange.minVariantPrice.amount}
+          </p>
+          <BuyButton productId={product.id} />
+        </div>
       </div>
     </div>
   )
 }
+export async function getServerSideProps(context) {
+  const { params } = context
+  const productId = params.productId
+  return {
+    props: { productId }, // will be passed to the page component as props
+  }
+}
 
-export default Product
+export default ProductDetail

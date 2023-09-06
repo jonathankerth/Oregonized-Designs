@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react'
 import dotenv from 'dotenv'
 import BuyButton from '../../../../components/buyButton'
+import Link from 'next/link'
 
 dotenv.config()
 
@@ -18,39 +19,40 @@ function Collections() {
   useEffect(() => {
     async function fetchCollections() {
       const collectionQuery = `
-        query getCollections {
-          collections(first: 10) {
-            edges {
-              node {
-                id
-                handle
-              }
-            }
-          }
-        }
-      `
-
-      const productQuery = `
-      query getProducts($collectionIds: [ID!]!) {
-        nodes(ids: $collectionIds) {
-          ... on Collection {
-            id
-            title
-            products(first: 10) {
+          query getCollections {
+            collections(first: 10) {
               edges {
                 node {
                   id
-                  title
-                  images(first: 1) {
-                    edges {
-                      node {
-                        src
+                  handle
+                }
+              }
+            }
+          }
+        `
+
+      const productQuery = `
+        query getProducts($collectionIds: [ID!]!) {
+          nodes(ids: $collectionIds) {
+            ... on Collection {
+              id
+              title
+              products(first: 10) {
+                edges {
+                  node {
+                    id
+                    title
+                    images(first: 1) {
+                      edges {
+                        node {
+                          src
+                        }
                       }
                     }
-                  }
-                  priceRange {
-                    minVariantPrice {
-                      amount
+                    priceRange {
+                      minVariantPrice {
+                        amount
+                      }
                     }
                   }
                 }
@@ -58,8 +60,7 @@ function Collections() {
             }
           }
         }
-      }
-    `
+      `
 
       console.log('About to send request to Shopify...')
 
@@ -148,15 +149,18 @@ function Collections() {
                 key={product.id}
                 className="flex-none w-full border-t mt-4 pt-4"
               >
-                <img
-                  src={product.images.edges[0].node.src}
-                  alt={product.title}
-                  className="w-full h-64 object-cover mb-4"
-                />
-                <h3 className="text-2xl font-medium">{product.title}</h3>
-                <p className="text-gray-600 mt-2">
-                  Price: ${product.priceRange.minVariantPrice.amount}
-                </p>
+                <Link href={`/productId/${product.id}`}>
+                  <img
+                    src={product.images.edges[0].node.src}
+                    alt={product.title}
+                    className="w-full h-64 object-cover mb-4"
+                  />
+                  <h3 className="text-2xl font-medium">{product.title}</h3>
+                  <p className="text-gray-600 mt-2">
+                    Price: ${product.priceRange.minVariantPrice.amount}
+                  </p>
+                </Link>
+
                 <BuyButton productId={product.id} />
               </div>
             ))}
