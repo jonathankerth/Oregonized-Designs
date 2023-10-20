@@ -24,6 +24,7 @@ const ADD_TO_CART_MUTATION = `
 const BuyButton = ({ variantId }) => {
   async function addToCart(variantId, quantity = 1) {
     try {
+      const formattedVariantId = `gid://shopify/ProductVariant/${variantId}`
       const response = await fetch(GRAPHQL_ENDPOINT, {
         method: 'POST',
         headers: {
@@ -32,7 +33,7 @@ const BuyButton = ({ variantId }) => {
         },
         body: JSON.stringify({
           query: ADD_TO_CART_MUTATION,
-          variables: { variantId, quantity },
+          variables: { variantId: formattedVariantId, quantity },
         }),
       })
 
@@ -41,6 +42,11 @@ const BuyButton = ({ variantId }) => {
       if (jsonResponse.errors && jsonResponse.errors.length > 0) {
         console.error('Detailed Error:', jsonResponse.errors[0].message)
         throw new Error(jsonResponse.errors[0].message)
+      }
+
+      if (!jsonResponse.data.checkoutCreate.checkout) {
+        console.error('Checkout object is null')
+        return
       }
 
       window.location.href = jsonResponse.data.checkoutCreate.checkout.webUrl
