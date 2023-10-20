@@ -104,12 +104,5 @@ function ProductDetail({ productId }) {
     </div>
   )
 }
-export async function getServerSideProps(context) {
-  const { params } = context
-  const productId = params.productId
-  return {
-    props: { productId }, // will be passed to the page component as props
-  }
-}
 
 export default ProductDetail
